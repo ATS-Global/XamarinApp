@@ -6,6 +6,7 @@ using Android.OS;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Push;
 
 namespace App1
 {
@@ -21,16 +22,13 @@ namespace App1
 
          SetContentView(Resource.Layout.Main);
 
-         AppCenter.Start("2b9c19cb-c7b2-4cae-921f-e3e4474f9aad", typeof(Analytics), typeof(Crashes));
+         AppCenter.Start("2b9c19cb-c7b2-4cae-921f-e3e4474f9aad", typeof(Analytics), typeof(Crashes), typeof(Push));
 
          _errorButton = FindViewById<Button>(Resource.Id.button2);
          _errorButton.Click += _errorButton_Click;
 
          _trackEventsButton = FindViewById<Button>(Resource.Id.button1);
          _trackEventsButton.Click += _trackEventsButton_Click;
-         
-         // Set our view from the "main" layout resource
-         SetContentView(Resource.Layout.Main);
       }
 
       private void _trackEventsButton_Click(object sender, EventArgs e)
